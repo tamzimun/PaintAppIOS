@@ -12,27 +12,33 @@ class ViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var canvasView: CanvasView!
     
-    var colors2: [UIColor] = [.blue, .red, .green, .brown, .darkGray, .orange, .purple, .systemPink, .yellow]
+    var carrierState: CarrierState!
     
+    var colors2: [UIColor] = [.blue, .red, .green, .brown, .darkGray, .orange, .purple, .systemPink, .yellow]
 
+
+    @IBAction func save(_ sender: UIButton) {
+        carrierState.saveLine()
+        print("my save method is \(carrierState.saveLine())")
+    }
     @IBAction func circleButton(_ sender: UIButton) {
-        canvasView.shape = .circle
+        canvasView.shapeType = .circle
     }
     
     @IBAction func rectangleButton(_ sender: UIButton) {
-        canvasView.shape = .rectangle
+        canvasView.shapeType = .rectangle
     }
     
     @IBAction func lineButton(_ sender: UIButton) {
-        canvasView.shape = .line
+        canvasView.shapeType = .line
     }
     
     @IBAction func triangleButton(_ sender: UIButton) {
-        canvasView.shape = .triangle
+        canvasView.shapeType = .triangle
     }
     
     @IBAction func penButton(_ sender: UIButton) {
-        canvasView.shape = .pen
+        canvasView.shapeType = .pen
     }
     
     @IBAction func fillButton(_ sender: UISwitch) {
@@ -44,12 +50,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func returnBackButton(_ sender: UIButton) {
-        canvasView.backCanvasView()
+//        canvasView.backCanvasView()
+        carrierState.loadShape()
+        carrierState.shapesManager.printShapes(in: canvasView)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let shapes = ShapesManager.shared
+        carrierState = CarrierState(shapesManager: shapes)
         collectionView.delegate = self
         collectionView.dataSource = self
     }

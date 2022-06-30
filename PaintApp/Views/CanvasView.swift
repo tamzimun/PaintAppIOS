@@ -8,96 +8,67 @@ import UIKit
 
 class CanvasView: UIView {
 
-    private var finishedLines = [Object]()
+    var carrierState: CarrierState!
+    private var shapes = [ShapeViewModel]()
     var color: UIColor = .black
-    var shape: Shapes = .pen
+    var shapeType: ShapeType = .pen
     var isFilled: Bool = false
+    var path: UIBezierPath!
     
-    
-    func drawLine(first: CGPoint, end: CGPoint, path: inout UIBezierPath){
-        path.move(to: first)
-        path.addLine(to: end)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
-    func drawRectangle(first: CGPoint, end: CGPoint, path: inout UIBezierPath){
-        let width = end.x - first.x
-        let height = end.y - first.y
-        path = UIBezierPath(rect: CGRect(x: first.x, y: first.y, width: width, height: height))
+    override func layoutSublayers(of layer: CALayer) {
+        let shapes = ShapesManager.shared
+        carrierState = CarrierState(shapesManager: shapes)
     }
     
-    func drawTriangle(first: CGPoint, end: CGPoint, path: inout UIBezierPath){
-        path.move(to: CGPoint(x: first.x, y: first.y))
-        path.addLine(to: CGPoint(x: first.x, y: end.y))
-        path.addLine(to: CGPoint(x: end.x, y: end.y))
-        path.close()
-    }
-    
-    func drawCircle(first: CGPoint, end: CGPoint, path: inout UIBezierPath){
-        let width = end.x - first.x
-        let height = end.y - first.y
-        path = UIBezierPath(ovalIn: CGRect(x: first.x, y: first.y, width: width, height: height))
-    }
-
     override func draw(_ rect: CGRect) {
         
-        finishedLines.forEach { line in
-            line.color.setStroke()
-            
-            line.points.forEach { first, end in
+        shapes.forEach { shape in
+            shape.points.forEach { fromPoint, toPoint in
+                let factory = shape.type.factory
+                let configuration = ShapeConfiguration (
+                    startPoint: fromPoint,
+                    endPoint: toPoint,
+                    isFilled: shape.isFilled,
+                    color: shape.color)
                 
-                var path = UIBezierPath()
-                
-                switch line.shapes {
-                case .pen: drawLine(first: first, end: end, path: &path)
-                case .line: drawLine(first: first, end: end, path: &path)
-                case .rectangle: drawRectangle(first: first, end: end, path: &path)
-                case .triangle: drawTriangle(first: first, end: end, path: &path)
-                case .circle: drawCircle(first: first, end: end, path: &path)
-                }
-                
-                if line.isFilled {
-                    line.color.setFill()
-                    path.fill()
-                }
-                
-                path.lineWidth = 3
+                let path = factory.create(configuration: configuration)
                 path.stroke()
-                
+
             }
         }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        guard var firstPoint = touches.first?.location(in: nil) else { return }
+        guard let firstPoint = touches.first?.location(in: self) else { return }
+        let viewModel = ShapeViewModel(
+            points:[(fromPoint: firstPoint, toPoint: firstPoint)],
+            color: color,
+            isFilled: isFilled,
+            type: shapeType)
         
-        firstPoint.y -= 80
-        
-        let line = Object(points:[(firstPoint, firstPoint)], color: color, isFilled: isFilled, shapes: shape)
-        finishedLines.append(line)
+        shapes.append(viewModel)
         setNeedsDisplay()
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        guard var currantPoint = touches.first?.location(in: nil) else { return }
-        currantPoint.y -= 80
-        
-        guard var lastObject = finishedLines.popLast() else { return }
+        guard let currantPoint = touches.first?.location(in: self) else { return }
+
+        guard var lastObject = shapes.popLast() else { return }
         guard var endPoint = lastObject.points.popLast() else { return }
         
-        endPoint.1 = currantPoint
+        endPoint.toPoint = currantPoint
         lastObject.points.append(endPoint)
         
-        if lastObject.shapes == .pen {
+        if lastObject.type == .pen {
             lastObject.points.append((currantPoint, currantPoint))
         }
-        finishedLines.append(lastObject)
-        setNeedsDisplay()
-    }
-    
-    func backCanvasView() {
-        _ = finishedLines.popLast()
+        shapes.append(lastObject)
         setNeedsDisplay()
     }
 }
