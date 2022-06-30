@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad7_9" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="PaintApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="744" height="1133"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9W-w1-rMP">
+                                <rect key="frame" x="684" y="44" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="itf-x9-aUN"/>
+                                    <constraint firstAttribute="height" constant="40" id="sBu-FY-8aF"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="undo"/>
+                                <connections>
+                                    <action selector="returnBackButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rR4-qA-Ck5"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fEJ-83-rxP">
+                                <rect key="frame" x="427.5" y="39" width="225" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="ZUl-g3-0bI"/>
+                                    <constraint firstAttribute="height" constant="50" id="k41-g2-Hdm"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oLf-2t-Mbi">
+                                    <size key="itemSize" width="38" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ZWT-DG-Cle">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YX3-oO-GcL">
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="THq-L3-4ih">
+                                                    <rect key="frame" x="2" y="2" width="36" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="ANU-71-QGt"/>
+                                                        <constraint firstAttribute="width" constant="36" id="Pla-j7-1KJ"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="THq-L3-4ih" firstAttribute="top" secondItem="YX3-oO-GcL" secondAttribute="top" constant="2" id="Dgq-6l-Eqt"/>
+                                                <constraint firstAttribute="trailing" secondItem="THq-L3-4ih" secondAttribute="trailing" constant="2" id="YU5-c5-qIz"/>
+                                                <constraint firstItem="THq-L3-4ih" firstAttribute="leading" secondItem="YX3-oO-GcL" secondAttribute="leading" constant="2" id="oQV-9W-a0e"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="40" height="50"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2YP-d4-vkJ">
+                                <rect key="frame" x="20" y="44" width="240" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLI-mi-Ye3">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="circle" symbolScale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="circleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c0L-vE-0of"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqq-6g-EC1">
+                                        <rect key="frame" x="50" y="0.0" width="40" height="40"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="rectangle"/>
+                                        <connections>
+                                            <action selector="rectangleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CXP-TO-dDw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yc3-Bm-F6n">
+                                        <rect key="frame" x="100" y="0.0" width="40" height="40"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="line.diagonal" catalog="system"/>
+                                        <connections>
+                                            <action selector="lineButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TaN-TC-RWC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjh-BL-BcG">
+                                        <rect key="frame" x="150" y="0.0" width="40" height="40"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="triangle"/>
+                                        <connections>
+                                            <action selector="triangleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sy4-Pv-CSg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wc9-F6-YJr">
+                                        <rect key="frame" x="200" y="0.0" width="40" height="40"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="pencil" catalog="system"/>
+                                        <connections>
+                                            <action selector="penButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yIj-vT-Kaq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="YJt-hb-FDC"/>
+                                    <constraint firstAttribute="height" constant="40" id="lNV-t5-g1a"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfR-Hg-BR4">
+                                <rect key="frame" x="300" y="55" width="28.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQ2-k9-WFF" customClass="CanvasView" customModule="PaintApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="84" width="744" height="1029"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YXA-R8-j5T">
+                                <rect key="frame" x="338.5" y="48" width="51" height="32"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="fillButton:" destination="BYZ-38-t0r" eventType="valueChanged" id="P8N-iF-2RG"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wQ2-k9-WFF" secondAttribute="trailing" id="0Do-XE-PRP"/>
+                            <constraint firstItem="LfR-Hg-BR4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="31" id="6km-0H-LbL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wQ2-k9-WFF" secondAttribute="bottom" id="6uz-U8-Js4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="y9W-w1-rMP" secondAttribute="trailing" constant="20" id="7jE-pW-TJK"/>
+                            <constraint firstItem="y9W-w1-rMP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="8xh-DB-Xjl"/>
+                            <constraint firstItem="fEJ-83-rxP" firstAttribute="leading" secondItem="YXA-R8-j5T" secondAttribute="trailing" constant="40" id="B5D-KB-9OS"/>
+                            <constraint firstItem="YXA-R8-j5T" firstAttribute="centerY" secondItem="2YP-d4-vkJ" secondAttribute="centerY" id="Fc1-C2-xJo"/>
+                            <constraint firstItem="wQ2-k9-WFF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Jcg-ZD-Fng"/>
+                            <constraint firstItem="2YP-d4-vkJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="M1m-ZW-qXI"/>
+                            <constraint firstItem="LfR-Hg-BR4" firstAttribute="leading" secondItem="2YP-d4-vkJ" secondAttribute="trailing" constant="40" id="VGT-2i-wVA"/>
+                            <constraint firstItem="2YP-d4-vkJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="bKs-Ph-TBI"/>
+                            <constraint firstItem="YXA-R8-j5T" firstAttribute="leading" secondItem="LfR-Hg-BR4" secondAttribute="trailing" constant="10" id="dgn-09-aXs"/>
+                            <constraint firstItem="LfR-Hg-BR4" firstAttribute="centerY" secondItem="2YP-d4-vkJ" secondAttribute="centerY" id="dhj-DQ-VZ2"/>
+                            <constraint firstItem="fEJ-83-rxP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="fdj-vh-JHf"/>
+                            <constraint firstItem="YXA-R8-j5T" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="lnb-lB-n6M"/>
+                            <constraint firstItem="wQ2-k9-WFF" firstAttribute="top" secondItem="2YP-d4-vkJ" secondAttribute="bottom" id="qE2-iQ-Mz7"/>
+                            <constraint firstItem="y9W-w1-rMP" firstAttribute="leading" secondItem="fEJ-83-rxP" secondAttribute="trailing" constant="31.5" id="vvX-rn-v6P"/>
+                            <constraint firstItem="fEJ-83-rxP" firstAttribute="centerY" secondItem="2YP-d4-vkJ" secondAttribute="centerY" id="yov-et-25g"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="canvasView" destination="wQ2-k9-WFF" id="gZT-y0-2Y2"/>
+                        <outlet property="collectionView" destination="fEJ-83-rxP" id="m1G-A7-zSd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.70967741935485" y="137.95233892321269"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="circle" width="100" height="100"/>
+        <image name="line.diagonal" catalog="system" width="128" height="113"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="rectangle" width="100" height="100"/>
+        <image name="triangle" width="100" height="100"/>
+        <image name="undo" width="128" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
