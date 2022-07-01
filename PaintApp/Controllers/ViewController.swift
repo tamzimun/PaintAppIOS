@@ -16,11 +16,6 @@ class ViewController: UIViewController {
     
     var colors2: [UIColor] = [.blue, .red, .green, .brown, .darkGray, .orange, .purple, .systemPink, .yellow]
 
-
-    @IBAction func save(_ sender: UIButton) {
-        carrierState.saveLine()
-        print("my save method is \(carrierState.saveLine())")
-    }
     @IBAction func circleButton(_ sender: UIButton) {
         canvasView.shapeType = .circle
     }
@@ -50,16 +45,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func returnBackButton(_ sender: UIButton) {
-//        canvasView.backCanvasView()
-        carrierState.loadShape()
-        carrierState.shapesManager.printShapes(in: canvasView)
+        canvasView.undo()
+    }
+    
+    @IBAction func goForwardButton(_ sender: UIButton) {
+        canvasView.redo()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let shapes = ShapesManager.shared
-        carrierState = CarrierState(shapesManager: shapes)
         collectionView.delegate = self
         collectionView.dataSource = self
     }

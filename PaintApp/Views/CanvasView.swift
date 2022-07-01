@@ -8,22 +8,22 @@ import UIKit
 
 class CanvasView: UIView {
 
-    var carrierState: CarrierState!
+    lazy var carrierState = CarrierState(canvasView: self)
     private var shapes = [ShapeViewModel]()
     var color: UIColor = .black
     var shapeType: ShapeType = .pen
     var isFilled: Bool = false
     var path: UIBezierPath!
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        
+    func save() -> Momento {
+        return StateShapesMomento(shapes: self.shapes)
     }
-    
-    override func layoutSublayers(of layer: CALayer) {
-        let shapes = ShapesManager.shared
-        carrierState = CarrierState(shapesManager: shapes)
+
+    func restore(state: Momento) {
+        self.shapes = state.shapesArray
+        setNeedsDisplay()
     }
-    
+        
     override func draw(_ rect: CGRect) {
         
         shapes.forEach { shape in
@@ -37,13 +37,12 @@ class CanvasView: UIView {
                 
                 let path = factory.create(configuration: configuration)
                 path.stroke()
-
             }
         }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        if shapes.isEmpty { carrierState.save() }
         guard let firstPoint = touches.first?.location(in: self) else { return }
         let viewModel = ShapeViewModel(
             points:[(fromPoint: firstPoint, toPoint: firstPoint)],
@@ -70,5 +69,17 @@ class CanvasView: UIView {
         }
         shapes.append(lastObject)
         setNeedsDisplay()
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        carrierState.save()
+    }
+    
+    func undo() {
+        carrierState.undo(steps: 1)
+    }
+    
+    func redo() {
+        carrierState.redo(steps: 1)
     }
 }

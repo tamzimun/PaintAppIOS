@@ -7,11 +7,14 @@
 
 import Foundation
 
-class StateShapesMomento {
-    var shapesArray: [ShapeViewModel]
+protocol Momento {
+    var shapesArray: [ShapeViewModel] { get }
+}
+
+class StateShapesMomento: Momento {
+    private(set) var shapesArray: [ShapeViewModel]
     
     init(shapes: [ShapeViewModel]) {
         self.shapesArray = shapes
-        print("my shape array is \(shapes)")
     }
 }

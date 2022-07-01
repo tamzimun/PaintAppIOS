@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C1491D0286DD64600666F38 /* StateShapesMomento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1491CF286DD64600666F38 /* StateShapesMomento.swift */; };
-		1C1491D2286DD6ED00666F38 /* ShapesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1491D1286DD6ED00666F38 /* ShapesManager.swift */; };
 		1C1491D4286DDA3100666F38 /* CarrierState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1491D3286DDA3100666F38 /* CarrierState.swift */; };
-		1C1491D6286DDCD800666F38 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1491D5286DDCD800666F38 /* DrawView.swift */; };
 		1C60159F286D777400474005 /* ShapeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C60159E286D777400474005 /* ShapeFactory.swift */; };
 		1C6015A1286D78F800474005 /* LineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6015A0286D78F800474005 /* LineFactory.swift */; };
 		1C6015A3286D790900474005 /* RectangleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6015A2286D790900474005 /* RectangleFactory.swift */; };
@@ -28,9 +26,7 @@
 
 /* Begin PBXFileReference section */
 		1C1491CF286DD64600666F38 /* StateShapesMomento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateShapesMomento.swift; sourceTree = "<group>"; };
-		1C1491D1286DD6ED00666F38 /* ShapesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesManager.swift; sourceTree = "<group>"; };
 		1C1491D3286DDA3100666F38 /* CarrierState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierState.swift; sourceTree = "<group>"; };
-		1C1491D5286DDCD800666F38 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		1C60159E286D777400474005 /* ShapeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeFactory.swift; sourceTree = "<group>"; };
 		1C6015A0286D78F800474005 /* LineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineFactory.swift; sourceTree = "<group>"; };
 		1C6015A2286D790900474005 /* RectangleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleFactory.swift; sourceTree = "<group>"; };
@@ -59,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C1491DB286ED4CF00666F38 /* ShapesMemento */ = {
+			isa = PBXGroup;
+			children = (
+				1C1491CF286DD64600666F38 /* StateShapesMomento.swift */,
+				1C1491D3286DDA3100666F38 /* CarrierState.swift */,
+			);
+			path = ShapesMemento;
+			sourceTree = "<group>";
+		};
 		1C60159D286D775000474005 /* ShapeFactory */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,16 +96,13 @@
 			isa = PBXGroup;
 			children = (
 				1C60159D286D775000474005 /* ShapeFactory */,
+				1C1491DB286ED4CF00666F38 /* ShapesMemento */,
 				1C6259ED2854A17D00378592 /* Controllers */,
 				1C6259EC2854A17100378592 /* Views */,
 				1C6259D428534B9300378592 /* Main.storyboard */,
 				1C6259E72854770100378592 /* Additional Info */,
 				1C6259D728534B9400378592 /* Assets.xcassets */,
 				1C6259DC28534B9400378592 /* Info.plist */,
-				1C1491CF286DD64600666F38 /* StateShapesMomento.swift */,
-				1C1491D1286DD6ED00666F38 /* ShapesManager.swift */,
-				1C1491D3286DDA3100666F38 /* CarrierState.swift */,
-				1C1491D5286DDCD800666F38 /* DrawView.swift */,
 			);
 			path = PaintApp;
 			sourceTree = "<group>";
@@ -208,12 +210,10 @@
 				1CEF3A8A2859D87300BE6567 /* CanvasView.swift in Sources */,
 				1C6259D328534B9300378592 /* ViewController.swift in Sources */,
 				1C6015A1286D78F800474005 /* LineFactory.swift in Sources */,
-				1C1491D2286DD6ED00666F38 /* ShapesManager.swift in Sources */,
 				1C6259CF28534B9300378592 /* AppDelegate.swift in Sources */,
 				1C6015A7286D793500474005 /* CircleFactory.swift in Sources */,
 				1C6259D128534B9300378592 /* SceneDelegate.swift in Sources */,
 				1C1491D4286DDA3100666F38 /* CarrierState.swift in Sources */,
-				1C1491D6286DDCD800666F38 /* DrawView.swift in Sources */,
 				1C6015A3286D790900474005 /* RectangleFactory.swift in Sources */,
 				1C6259EB2854985000378592 /* Shape.swift in Sources */,
 				1C1491D0286DD64600666F38 /* StateShapesMomento.swift in Sources */,
