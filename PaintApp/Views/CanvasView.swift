@@ -13,7 +13,6 @@ class CanvasView: UIView {
     var color: UIColor = .black
     var shapeType: ShapeType = .pen
     var isFilled: Bool = false
-    var path: UIBezierPath!
         
     func save() -> Momento {
         return StateShapesMomento(shapes: self.shapes)
