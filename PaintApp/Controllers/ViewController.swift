@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  PaintApp
 //
-//  Created by Aida Moldaly on 10.06.2022.
+//  Created by tamzimun on 10.06.2022.
 //
 
 import UIKit

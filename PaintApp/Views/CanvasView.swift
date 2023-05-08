@@ -2,7 +2,7 @@
 //  CanvasView2.swift
 //  PaintApp
 //
-//  Created by Aida Moldaly on 15.06.2022.
+//  Created by tamzimun on 15.06.2022.
 //
 import UIKit
 

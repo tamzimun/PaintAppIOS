@@ -2,7 +2,7 @@
 //  RectangleFactory.swift
 //  PaintApp
 //
-//  Created by Aida Moldaly on 30.06.2022.
+//  Created by tamzimun on 30.06.2022.
 //
 
 

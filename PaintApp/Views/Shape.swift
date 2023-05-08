@@ -2,7 +2,7 @@
 //  TouchPointAndColor.swift
 //  PaintApp
 //
-//  Created by Aida Moldaly on 11.06.2022.
+//  Created by tamzimun on 11.06.2022.
 //
 
 
